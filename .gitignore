@@ -1,0 +1,5 @@
+assets/
+css/tailwind.css
+node_modules/
+package-lock.json
+package.json
