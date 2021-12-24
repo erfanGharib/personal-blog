@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: open sans;
+	src: url(../assets/fonts/OpenSans-Light.ttf);
+	font-weight: 200;
+}
+@font-face {
+	font-family: open sans;
+	src: url(../assets/fonts/OpenSans-Medium.ttf);
+	font-weight: 400;
+}
+@font-face {
+	font-family: open sans;
+	src: url(../assets/fonts/OpenSans-SemiBold.ttf);
+	font-weight: 600;
+}
+
+.contact-me-boxes {
+	@apply border-1 text-dark-gray flex p-2 items-center cursor-default justify-between hover:shadow-3xsm transition pointer h-16 duration-200;
+}
+.work-sample-boxes {
+	@apply dark-gray hover:shadow-3xsm transition duration-200 border-1 text-dark-gray;
+	min-width: 220px;
+	width: 32%;
+}
+.hover\:shadow-3xsm:hover {
+	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.87) !important;
+}
+
+.contact-me-grid {
+	@apply content-start gap-6 w-full h-full border-x-1 grid p-5 text-dark-gray; 
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.dark-gray {
+	background:#1f1f1f;
+}
+.light-green {
+	color:#28ccb5;
+	border-color:#28ccb5;
+}
+.text-light-gray {
+	color:#cdcdcd !important;
+}
+.bg-light-gray {
+	background:#cdcdcd !important;
+	border-color:#cdcdcd !important;
+}
+.text-dark-gray {
+	color:#848484;
+	border-color:#848484;
+}
+.border-b-1 {
+	border-bottom-width: 1px;
+}
+.border-t-1 {
+	border-top-width: 1px;
+}
+.border-1 {
+	border-width: 1px;
+}
+.border-r-1 {
+	border-right-width: 1px;
+}
+.border-l-1 {
+	border-left-width: 1px;
+}
+.border-x-1 {
+	border-left-width: 1px;
+	border-right-width: 1px;
+}
+
+body,h1,h2,h3,button,div,header,footer,li,a {
+	font-family: open sans;
+}
+
+.ham-menu-line-1 {
+	top: 6px;
+	transform: rotate(45deg);
+}
+.ham-menu-line-2 {
+	bottom: 5px;
+	transform: rotate(-45deg);
+}
+
+.ico-instagram {background:url(../assets/icons/instagram.png);}
+.ico-copy {background:url(../assets/icons/copy.png) no-repeat;background-size: 100%;}
+.ico-telegram {background:url(../assets/icons/telegram.png);}
+.ico-github {background:url(../assets/icons/github.png);}
+.ico-linkedin {background:url(../assets/icons/linkedin-logo.png);}
+.ico-email {background:url(../assets/icons/email.png);}
+.ico-down-arrow {background:url(../assets/icons/down-arrow.png);}
