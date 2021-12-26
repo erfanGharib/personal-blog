@@ -6,6 +6,11 @@ let page_html_code_$arr = [
     fetch('../components/workSample-grid.html'),
     fetch('../components/contact-me.html')
 ];
+let page_title_$arr = [
+    'About Me | Erfan Gharib',
+    'Work Sample',
+    'Contact Me'
+];
 // load work sample data from json file
 let work_sample_$data = fetch('../data/workSample-data.json').then((res) => res.json());
 let nav_btn_$dom = document.querySelectorAll('.nav-btn');
@@ -17,10 +22,15 @@ page_html_code_$arr.forEach((value, index)=>{
     value.then((res)=> res.text())
     .then((data)=>{
         nav_btn_$dom[index].addEventListener('click',function () {
+            if(index===2) main_$dom.classList.add('h-full');
+            else main_$dom.classList.remove('h-full');
+
+            document.querySelector('title').innerText=page_title_$arr[index];
             for (let btn_num=0;btn_num<=2;btn_num++) {
                 nav_btn_$dom[btn_num].classList.remove('light-green');
                 nav_btn_$dom[btn_num].classList.add('text-dark-gray');
             }
+
             nav_btn_$dom[index].classList.add('light-green');
             nav_btn_$dom[index].classList.remove('text-dark-gray');
             main_$dom.innerHTML=data;
