@@ -1,5 +1,9 @@
 "use strict";
 
+import return_work_sample_$func, { 
+    work_sample_$d_html, work_sample_$data
+} from '../components/workSample.js';
+
 // load html data from components
 let page_html_code_$arr = [
     fetch('../components/about-me.html'),
@@ -12,16 +16,28 @@ let page_title_$arr = [
     'Contact Me'
 ];
 // load work sample data from json file
-let work_sample_$data = fetch('../data/workSample-data.json').then((res) => res.json());
 let nav_btn_$dom = document.querySelectorAll('.nav-btn');
 let main_$dom = document.querySelector('main');
 let ham_menu_line_$dom = document.querySelectorAll('.ham-menu-line');
+let work_sample_boxes_$dom = document.querySelectorAll('.work-sample-boxes');
+
+let load_work_samples_$func =()=>{
+    work_sample_$data.then((data)=>{
+        data.forEach((value, index)=>{
+            return_work_sample_$func(index);
+            work_sample_$d_html.then((html_data)=>{
+                document.querySelector('#work-sample').innerHTML+=html_data;
+            })
+        })
+    })
+}
 
 // add event on nav btn to load data by clicking on them
 page_html_code_$arr.forEach((value, index)=>{
     value.then((res)=> res.text())
     .then((data)=>{
         nav_btn_$dom[index].addEventListener('click',function () {
+            if(index===1) load_work_samples_$func();
             if(index===2) main_$dom.classList.add('h-full');
             else main_$dom.classList.remove('h-full');
 
