@@ -54,7 +54,7 @@ let work_sample_events_$func = (num) => {
 };
 
 let close_ws_preview_$func =(this_)=>{
-    this_.target.parentElement.parentElement.parentElement.remove();
+    this_.target.parentElement.parentElement.parentElement.parentElement.remove();
 }
 
 // add event on nav btn to load data by clicking on them
