@@ -2,29 +2,55 @@
 	{
 		"name": "Blogr Landing Page",
 		"info": "",
-		"used_tec":"",
 		"link": "https://www.",
-		"img_src": "../assets/images/"
+		"img_src": "blogr-landing-page.jpg"
 	},
 	{
-		"name": "Blogr Landing Page",
+		"name": "Kepir Landing Page",
 		"info": "",
-		"used_tec":"",
 		"link": "https://www.",
-		"img_src": "../assets/images/"
+		"img_src": "kepir-landing-page.png"
 	},
 	{
-		"name": "Blogr Landing Page",
+		"name": "Faq Accordion Card",
 		"info": "",
-		"used_tec":"",
 		"link": "https://www.",
-		"img_src": "../assets/images/"
+		"img_src": "faq-accordion-card.jpg"
 	},
 	{
-		"name": "Blogr Landing Page",
+		"name": "Crowdfunding Product Page",
 		"info": "",
-		"used_tec":"",
 		"link": "https://www.",
-		"img_src": "../assets/images/"
+		"img_src": "crowdfunding-product-page.jpg"
+	},
+	{
+		"name": "Galleria Slidshow",
+		"info": "",
+		"link": "https://www.",
+		"img_src": "galleria-slideshow.png"
+	},
+	{
+		"name": "Homyz Landing Page",
+		"info": "",
+		"link": "https://www.",
+		"img_src": "homyz-landing-page.png"
+	},
+	{
+		"name": "Master Room Home Page",
+		"info": "",
+		"link": "https://www.",
+		"img_src": "desktop-preview.jpg"
+	},
+	{
+		"name": "My Blog",
+		"info": "",
+		"link": "https://www.",
+		"img_src": "my-blog.png"
+	},
+	{
+		"name": "Chrome Dinasour Game",
+		"info": "",
+		"link": "https://www.",
+		"img_src": "chrome-dinasour-game.png"
 	}
 ]
