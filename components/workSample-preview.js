@@ -16,7 +16,7 @@ let return_work_sample_preview_$func =(data_num)=> {
                         ></i>
                         <h2 class="text-light-gray text-xl">
                             Name: 
-                            <span class="text-dark-gray">${data[data_num].name}</span>
+                            <span class="skiptranslate text-dark-gray">${data[data_num].name}</span>
                         </h2>
                         <h2 class="text-light-gray text-xl mt-2">
                             information: 

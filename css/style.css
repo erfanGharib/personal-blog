@@ -17,6 +17,10 @@
 	src: url(../assets/fonts/OpenSans-SemiBold.ttf);
 	font-weight: 600;
 }
+@font-face {
+	font-family: Iranian Sans;
+    src: url(../assets/fonts/irsans_rasekhoon.ttf);
+}
 
 .contact-me-boxes {
 	@apply border-1 text-dark-gray flex p-2 items-center cursor-default justify-between transition h-16 duration-200;
@@ -71,8 +75,8 @@
 	border-right-width: 1px;
 }
 
-body,h1,h2,h3,button,div,header,footer,li,a {
-	font-family: open sans;
+body,h1,h2,h3,button,div,header,footer,li,a,select {
+	font-family: open sans,Iranian Sans,Arial, Helvetica, sans-serif !important;
 }
 
 .ham-menu-line-0 {
@@ -89,6 +93,20 @@ body,h1,h2,h3,button,div,header,footer,li,a {
 }
 .ws-info-overlay {
 	@apply fixed py-10 w-full h-full flex justify-center items-center bg-black bg-opacity-80;
+}
+select {
+	background: none;
+	color: #848484 !important;
+}
+option {
+	color: #1f1f1f !important;
+}
+.goog-te-banner-frame {
+	display: none !important;
+}
+font {
+	background: none !important;
+	box-shadow: none !important;
 }
 
 .ico-instagram {background:url(../assets/icons/instagram.png);}

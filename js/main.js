@@ -22,6 +22,7 @@ let page_title_$arr = [
 
 // load work sample data from json file
 let nav_btn_$dom = document.querySelectorAll('.nav-btn');
+let body_$dom = document.querySelector('body');
 let main_$dom = document.querySelector('main');
 let ham_menu_btn_$dom = document.querySelector('#ham-menu-btn');
 let ham_menu_line_$dom = document.querySelectorAll('.ham-menu-line');
@@ -46,7 +47,7 @@ let work_sample_events_$func = (num) => {
             let div = document.createElement("div");
             div.classList.add('ws-info-overlay');
             div.innerHTML=html_data;
-            document.body.appendChild(div);
+            body_$dom.appendChild(div);
 
             document.querySelector('#close-btn').addEventListener('click', close_ws_preview_$func);
         })
@@ -83,4 +84,21 @@ ham_menu_btn_$dom.addEventListener('click', ()=>{
         document.querySelector('#menu').classList.toggle(tailwind_class_$arr[index]);
         ham_menu_line_$dom[index].classList.toggle(`ham-menu-line-${index}`);
     }
+});
+
+window.addEventListener('load', ()=>{
+    google.translate.TranslateElement({
+            pageLanguage: 'en', 
+            includedLanguages: 'en,fa', 
+            autoDisplay: false
+        }, 
+        'google_translate_element'
+    )
+    google_translate_element.querySelector('div').childNodes[2].remove()
+    google_translate_element.querySelector('div').childNodes[1].remove()
+    
+    setInterval(() => {
+        document.querySelector('#goog-gt-tt').style.display='none';
+        body_$dom.style.top=0;
+    }, 10)
 });
