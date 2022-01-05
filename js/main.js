@@ -1,23 +1,29 @@
 "use strict";
 
-import return_work_sample_$func, {
-    work_sample_$d_html, work_sample_$data
-} from '../components/workSample.js';
-
-import return_work_sample_preview_$func, { 
-    work_sample_preview_$d_html 
-} from '../components/workSample-preview.js';
+import change_url_$func, {
+    rm_add_nav_btn_class_$func, load_page_$func,
+} from './functions.js';
 
 // load html data from components
 let page_html_code_$arr = [
-    fetch('../components/about-me.html'),
-    fetch('../components/workSample-grid.html'),
-    fetch('../components/contact-me.html')
+    fetch('../components/about-me.html').then(res => res.text()),
+    fetch('../components/workSample-grid.html').then(res => res.text()),
+    fetch('../components/contact-me.html').then(res => res.text())
 ];
-let page_title_$arr = [
-    'About Me | Erfan Gharib',
-    'Work Sample',
-    'Contact Me'
+// page urls and titles
+let page_title_url_$arr = [
+    {
+        title: 'About Me | Erfan Gharib',
+        url: 'about-me'
+    },
+    {
+        title: 'Work Sample',
+        url: 'work-sample'
+    },
+    {
+        title: 'Contact Me',
+        url: 'contact-me'
+    },
 ];
 
 // load work sample data from json file
@@ -26,58 +32,43 @@ let body_$dom = document.querySelector('body');
 let main_$dom = document.querySelector('main');
 let ham_menu_btn_$dom = document.querySelector('#ham-menu-btn');
 let ham_menu_line_$dom = document.querySelectorAll('.ham-menu-line');
+const page_URL = new URL(window.location);
+const ls = localStorage;
 let num=0;
 
-let load_work_samples_$func = () => {
-    work_sample_$data.then((data) => {
-        data.forEach((value, index) => {
-            return_work_sample_$func(index);
-            work_sample_$d_html.then((html_data) => {
-                document.querySelector('#work-sample').innerHTML += html_data;
-            })
-            .then(() => work_sample_events_$func(index));
-        })
-    });
-};
-
-let work_sample_events_$func = (num) => {
-    document.querySelectorAll('.work-sample-boxes')[num].addEventListener('click', () => {
-        return_work_sample_preview_$func(num);
-        work_sample_preview_$d_html.then((html_data) => {
-            let div = document.createElement("div");
-            div.classList.add('ws-info-overlay');
-            div.innerHTML=html_data;
-            body_$dom.appendChild(div);
-
-            document.querySelector('#close-btn').addEventListener('click', close_ws_preview_$func);
-        })
-    })
-};
-
-let close_ws_preview_$func =(this_)=>{
-    this_.target.parentElement.parentElement.parentElement.parentElement.remove();
+// set a default data in ls
+if(ls.getItem('current_page_index')===null) {
+    ls.setItem('current_page_index', 0);
 }
 
 // add event on nav btn to load data by clicking on them
 page_html_code_$arr.forEach((value, index) => {
-    value.then((res) => res.text())
-    .then((data) => {
+    value.then(() => {
         nav_btn_$dom[index].addEventListener('click', function () {
-            if (index === 1) load_work_samples_$func();
-            if (index === 2) main_$dom.classList.add('h-full');
-            else main_$dom.classList.remove('h-full');
+            switch (index) {
+                case 2:
+                    main_$dom.classList.add('h-full');
+                    break;
+                default:
+                    main_$dom.classList.remove('h-full');
+                    break;
+            }
 
-            document.querySelector('title').innerText = page_title_$arr[index];
+            localStorage.setItem('current_page_index', index);
+            load_page_$func();
+            change_url_$func(
+                page_title_url_$arr[index].title, 
+                page_title_url_$arr[index].url
+            );
 
-            nav_btn_$dom[num].classList.remove('light-green');
-            nav_btn_$dom[index].classList.add('light-green');
+            rm_add_nav_btn_class_$func(index);
 
-            main_$dom.innerHTML = data;
             num = index;
         })
     })
 });
 
+// display ham menu , animate ham icon
 ham_menu_btn_$dom.addEventListener('click', ()=>{
     let tailwind_class_$arr = ['hidden', 'flex'];
     for (let index = 0; index <= 1; index++) {
@@ -86,6 +77,10 @@ ham_menu_btn_$dom.addEventListener('click', ()=>{
     }
 });
 
+/*
+    * load google translate api
+    * remove unwanted elements
+*/ 
 window.addEventListener('load', ()=>{
     google.translate.TranslateElement({
             pageLanguage: 'en', 
@@ -100,5 +95,13 @@ window.addEventListener('load', ()=>{
     setInterval(() => {
         document.querySelector('#goog-gt-tt').style.display='none';
         body_$dom.style.top=0;
-    }, 10)
+    }, 10);
+
+    load_page_$func();
 });
+
+export default page_html_code_$arr;
+export {
+    nav_btn_$dom, body_$dom,
+    main_$dom, page_URL, ls, num
+}
