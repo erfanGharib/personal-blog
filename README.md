@@ -6,3 +6,5 @@
 - About me
 - Work Samples
 - Contact me
+## Project Status
+Not Completed
