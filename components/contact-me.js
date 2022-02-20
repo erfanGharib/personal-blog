@@ -1,26 +1,21 @@
-<div class="contact-me-grid">
-    <a class="contact-me-boxes hover:shadow-3xsm" href="https://www.instagram.com/___erfan_gh___/">
-        <i class="w-10 h-10 block ico-instagram"></i>
-        <span class="text-xl text-light-gray mx-auto">Instagram</span>
-    </a>
-
-    <a class="contact-me-boxes hover:shadow-3xsm" href="https://t.me/ERFAN_web_dev">
-        <i class="w-10 h-10 block ico-telegram"></i>
-        <span class="text-xl text-light-gray mx-auto">Telegram</span>
-    </a>
-
-    <a class="contact-me-boxes hover:shadow-3xsm" href="https://github.com/erfanGharib">
-        <i class="w-10 h-10 block ico-github"></i>
-        <span class="text-xl text-light-gray mx-auto">Github</span>
-    </a>
-
-    <a class="contact-me-boxes hover:shadow-3xsm" href="https://www.linkedin.com/in/erfan-gharib-40b80b207/">
-        <i class="w-10 h-10 block ico-linkedin"></i>
-        <span class="text-xl text-light-gray mx-auto">Linkedin</span>
-    </a>
-
-    <a class="pb-auto contact-me-boxes hover:shadow-3xsm" href="www.gmail.com">
-        <i class="w-10 h-10 block ico-email"></i>
-        <span class="text-xl text-light-gray mx-auto">Email</span>
-    </a>
-</div>
+const socialMedia = [
+    { name:'instagram', link: 'https://www.instagram.com/___erfan_gh___/' },
+    { name:'telegram', link: 'https://t.me/ERFAN_web_dev' },
+    { name:'github', link: 'https://github.com/erfanGharib' },
+    { name:'linkedin', link: 'https://www.linkedin.com/in/erfan-gharib-40b80b207/' },
+    { name:'email', link: 'www.gmail.com' },
+];
+let elements='';
+export default function contact_me_$func() {
+    socialMedia.forEach(value => {
+        elements += (
+            `<a class="contact-me-boxes hover:shadow-3xsm" href="${value.link}">
+                <i class="w-10 h-10 block ico-${value.name}"></i>
+                <span class="text-xl capitalize text-light-gray mx-auto">${value.name}</span>
+            </a>`
+        )
+    })
+    return `<div class="px-7 h-full w-full">
+        <div class="contact-me-grid h-full">${elements}</div>
+    </div>`;
+}
