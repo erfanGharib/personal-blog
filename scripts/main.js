@@ -5,6 +5,7 @@ import change_url_$func, {
 } from './functions.js';
 import footer_$node from '../components/footer.js';
 import navBar_$node from '../components/navbar.js';
+import contact_me_$func from '../components/contact-me.js';
 
 // load html data from components
 let page_html_code_$arr = [
@@ -18,63 +19,9 @@ let nav_btn_$dom = document.querySelectorAll('.nav-btn');
 let body_$dom = document.querySelector('body');
 let main_$dom = document.querySelector('main');
 
+// main_$dom.innerHTML=contact_me_$func();
 main_$dom.parentNode.insertBefore(navBar_$node, main_$dom);
-body_$dom.appendChild(footer_$node);
-
-
-
-// page urls and titles
-// let page_title_url_$arr = [
-//     {
-//         title: 'About Me | Erfan Gharib',
-//         url: 'about-me'
-//     },
-//     {
-//         title: 'Work Sample',
-//         url: 'work-sample'
-//     },
-//     {
-//         title: 'Contact Me',
-//         url: 'contact-me'
-//     },
-// ];
-
-// const page_URL = new URL(window.location);
-// const ls = localStorage;
-// let num=0;
-
-// set a default data in ls
-// if(ls.getItem('current_page_index')===null) {
-//     ls.setItem('current_page_index', 0);
-// }
-
-// add event on nav btn to load data by clicking on them
-// page_html_code_$arr.forEach((value, index) => {
-//     value.then(() => {
-//         nav_btn_$dom[index].addEventListener('click', function () {
-//             switch (index) {
-//                 case 2:
-//                     main_$dom.classList.add('h-full');
-//                     break;
-//                 default:
-//                     main_$dom.classList.remove('h-full');
-//                     break;
-//             }
-
-//             localStorage.setItem('current_page_index', index);
-//             load_page_$func();
-//             change_url_$func(
-//                 page_title_url_$arr[index].title, 
-//                 page_title_url_$arr[index].url
-//             );
-
-//             rm_add_nav_btn_class_$func(index);
-
-//             num = index;
-//         })
-//     })
-// });
-
+main_$dom.appendChild(footer_$node);
 
 /*
     * load google translate api
