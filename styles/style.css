@@ -9,17 +9,18 @@
 }
 @font-face {
 	font-family: open sans;
-	src: url(../assets/fonts/OpenSans-Medium.ttf);
-	font-weight: 400;
-}
-@font-face {
-	font-family: open sans;
 	src: url(../assets/fonts/OpenSans-SemiBold.ttf);
 	font-weight: 600;
 }
 @font-face {
-	font-family: Iranian Sans;
-    src: url(../assets/fonts/irsans_rasekhoon.ttf);
+	font-family: vazir;
+    src: url(../assets/fonts/Vazir-Bold-FD.ttf);
+	font-weight: 600;
+}
+@font-face {
+	font-family: vazir;
+    src: url(../assets/fonts/Vazir-Light-FD.ttf);
+	font-weight: 200;
 }
 
 .contact-me-boxes {
@@ -33,50 +34,16 @@
 }
 
 .contact-me-grid {
-	@apply content-start gap-6 w-full h-full border-r border-l grid p-5 border-darkGray; 
+	@apply content-start gap-6 w-full border-r border-l grid p-5 border-darkGray; 
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .dark-gray {
 	background:#1f1f1f;
 }
-.light-green {
-	color:#28ccb5 !important;
-	border-color:#28ccb5 !important;
-}
-.text-light-gray {
-	color:#cdcdcd !important;
-}
-.bg-light-gray {
-	background:#cdcdcd !important;
-	border-color:#cdcdcd !important;
-}
-.text-dark-gray {
-	color:#848484;
-	border-color:#848484;
-}
-/* .border-b-1 {
-	border-bottom-width: 1px;
-}
-.border-t-1 {
-	border-top-width: 1px;
-}
-.border-1 {
-	border-width: 1px;
-}
-.border-r-1 {
-	border-right-width: 1px;
-}
-.border-l-1 {
-	border-left-width: 1px;
-}
-.border-x-1 {
-	border-left-width: 1px;
-	border-right-width: 1px;
-} */
 
 body,h1,h2,h3,button,div,header,footer,li,a,select {
-	font-family: open sans,Iranian Sans,Arial, Helvetica, sans-serif !important;
+	font-family: open sans,vazir,Arial, Helvetica, sans-serif !important;
 }
 
 .ham-menu-line-0 {
@@ -98,8 +65,7 @@ body,h1,h2,h3,button,div,header,footer,li,a,select {
 
 /* remove google translate unwanted element */
 select {
-	background: none;
-	color: #848484 !important;
+	@apply bg-none text-darkGray;
 }
 option {
 	color: #1f1f1f !important;
@@ -122,4 +88,7 @@ font {
 
 .navbar {
 	@apply w-full px-7 h-14 flex justify-between items-center border-b border-darkGray;
+}
+.this-page {
+	@apply border-lightGreen text-lightGreen;
 }
